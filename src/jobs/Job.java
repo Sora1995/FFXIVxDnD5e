@@ -82,4 +82,7 @@ public abstract class Job {
     public void printInventory() {
         System.out.println("Inventory: " + startingEquipment);
     }
+    public String getSavingThrows() {
+        return savingThrows;
+    }
 }

@@ -1,27 +1,55 @@
 package races;
+
 import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Hyur extends Race {
     private HyurClan clanChoice;
     private Stat hyurStat;
-    private ArrayList<String> midMNames = new ArrayList<>(Arrays.asList("Odard", "Redwald", "Kenward", "Herebert", "Acwuld", "Edward", "Roderic", "Eadwine"));
-    private ArrayList<String> midFNames = new ArrayList<>(Arrays.asList("Rowena", "Hilda", "Agatha", "Hrodwyn", "Goldyna", "Hounild", "Edusa", "Beyhild", "Mathilda", "Tonild", "Somerhild", "Rimilde"));
-    private ArrayList<String> highMNames = new ArrayList<>(Arrays.asList("Sigmundr", "Arnar", "Armond", "Varin", "Bard", "Hordr", "Ogmundr", "Hallgrim", "Thordr", "Raubahn"));
-    private ArrayList<String> highFNames = new ArrayList<>(Arrays.asList("Marte", "Cathrine", "Yngvildr", "Helene", "Kolgrima", "Katie", "Myrun", "Kaolin", "Kaia", "Kamilla"));
-    private ArrayList<String> midSurnames = new ArrayList<>(Arrays.asList("Taylor", "Faulkner", "Browne", "Parker", "Forrest", "River", "Miller", "Draper", "Fletcher", "Hill", "Thatcher"));
-    private ArrayList<String> highSurnames = new ArrayList<>(Arrays.asList("Fury", "Burne", "Savage", "Stronge", "Strongaxe", "Blood", "Furor", "Shatterfist", "Strongblade", "Ironwill"));
+    private ArrayList<String> midMNames = new ArrayList<>(
+            Arrays.asList("Odard", "Redwald", "Kenward", "Herebert", "Acwuld", "Edward", "Roderic", "Eadwine"));
+    private ArrayList<String> midFNames = new ArrayList<>(Arrays.asList("Rowena", "Hilda", "Agatha", "Hrodwyn",
+            "Goldyna", "Hounild", "Edusa", "Beyhild", "Mathilda", "Tonild", "Somerhild", "Rimilde"));
+    private ArrayList<String> highMNames = new ArrayList<>(Arrays.asList("Sigmundr", "Arnar", "Armond", "Varin", "Bard",
+            "Hordr", "Ogmundr", "Hallgrim", "Thordr", "Raubahn"));
+    private ArrayList<String> highFNames = new ArrayList<>(Arrays.asList("Marte", "Cathrine", "Yngvildr", "Helene",
+            "Kolgrima", "Katie", "Myrun", "Kaolin", "Kaia", "Kamilla"));
+    private ArrayList<String> midSurnames = new ArrayList<>(Arrays.asList("Taylor", "Faulkner", "Browne", "Parker",
+            "Forrest", "River", "Miller", "Draper", "Fletcher", "Hill", "Thatcher"));
+    private ArrayList<String> highSurnames = new ArrayList<>(Arrays.asList("Fury", "Burne", "Savage", "Stronge",
+            "Strongaxe", "Blood", "Furor", "Shatterfist", "Strongblade", "Ironwill"));
+
     public enum HyurClan {
         MIDLANDERS, HIGHLANDERS, PADJAL
     }
 
     @Override
     public String randomNameGenerator(Sex sex, HashMap<String, Integer> stats) {
-        return "";
+        Random rand = new Random();
+        String randomFirstName = "";
+        String randomLastName = "";
+
+        if (clanChoice == HyurClan.MIDLANDERS && sex == Sex.MALE) {
+            randomFirstName = midMNames.get(rand.nextInt(midMNames.size()));
+            randomLastName = midSurnames.get(rand.nextInt(midSurnames.size()));
+        } else if (clanChoice == HyurClan.MIDLANDERS && sex == Sex.FEMALE) {
+            randomFirstName = midFNames.get(rand.nextInt(midFNames.size()));
+            randomLastName = midSurnames.get(rand.nextInt(midSurnames.size()));
+        } else if (clanChoice == HyurClan.HIGHLANDERS && sex == Sex.MALE) {
+            randomFirstName = highMNames.get(rand.nextInt(highMNames.size()));
+            randomLastName = highSurnames.get(rand.nextInt(highSurnames.size()));
+        } else {
+            randomFirstName = highFNames.get(rand.nextInt(highFNames.size()));
+            randomLastName = highSurnames.get(rand.nextInt(highSurnames.size()));
+        }
+        return randomFirstName + " " + randomLastName;
     }
+
+    
 
     @Override
     public void printClanMenu() {
@@ -40,9 +68,9 @@ public class Hyur extends Race {
         initialRaceBonuses.put(Stat.WISDOM, 2);
         String clanChoice = clan.toUpperCase().trim();
 
-        if(clanChoice.equals("MIDLANDERS") || clanChoice.equals("1")) {
+        if (clanChoice.equals("MIDLANDERS") || clanChoice.equals("1")) {
             this.clanChoice = HyurClan.MIDLANDERS;
-        } else if(clanChoice.equals("HIGHLANDERS") || clanChoice.equals("2")) {
+        } else if (clanChoice.equals("HIGHLANDERS") || clanChoice.equals("2")) {
             this.clanChoice = HyurClan.HIGHLANDERS;
         } else if (clanChoice.equals("PADJAL") || clanChoice.equals("3")) {
             this.clanChoice = HyurClan.PADJAL;
@@ -67,7 +95,8 @@ public class Hyur extends Race {
     @Override
     public ArrayList<PlayerChoices> raceOptions() {
         ArrayList<PlayerChoices> options = new ArrayList<>();
-        options.add(new PlayerChoices("What stat would you like to add 1 to?", Arrays.asList("Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma")));
+        options.add(new PlayerChoices("What stat would you like to add 1 to?",
+                Arrays.asList("Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma")));
         return options;
     }
 
@@ -75,22 +104,24 @@ public class Hyur extends Race {
         this.hyurStat = choice;
         startingStats();
         clanBonuses();
-		addBonus(choice, 1);
-		System.out.println("+1 additional bonus added to " + choice);
-	}
+        addBonus(choice, 1);
+        System.out.println("+1 additional bonus added to " + choice);
+    }
+
     @Override
     public void chosenVariables(String input) {
-        if(input.equalsIgnoreCase("Strength")) {
+        
+        if (input.equalsIgnoreCase("Strength")) {
             hyurBonus(Stat.STRENGTH);
-        } else if(input.equalsIgnoreCase("Dexterity")) {
+        } else if (input.equalsIgnoreCase("Dexterity")) {
             hyurBonus(Stat.DEXTERITY);
-        } else if(input.equalsIgnoreCase("Constitution")) {
+        } else if (input.equalsIgnoreCase("Constitution")) {
             hyurBonus(Stat.CONSTITUTION);
-        }  else if(input.equalsIgnoreCase("Wisdom")) {
+        } else if (input.equalsIgnoreCase("Wisdom")) {
             hyurBonus(Stat.WISDOM);
-        }  else if(input.equalsIgnoreCase("Intelligence")) {
+        } else if (input.equalsIgnoreCase("Intelligence")) {
             hyurBonus(Stat.INTELLIGENCE);
-        } else if(input.equalsIgnoreCase("Charisma")) {
+        } else if (input.equalsIgnoreCase("Charisma")) {
             hyurBonus(Stat.CHARISMA);
         } else {
             System.out.println("Invalid choice");

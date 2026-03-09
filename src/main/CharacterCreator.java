@@ -74,6 +74,26 @@ public class CharacterCreator {
         }
         System.out.println("Congrats, your " + chosenRace.getName() + " " + chosenJob.getJobName() + " named " + characterName + " has been created!");
         chosenJob.printInventory();
+        String[] stats = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
+        System.out.println("\nHere are your stats");
+        for (String name : stats) {
+            int baseStat = finalStats.get(name);
+            int bonusStat = chosenRace.getBonusFor(Race.Stat.valueOf(name.toUpperCase()));
+            System.out.println(name + ": " + baseStat + " + " + bonusStat + " (Total: " + (baseStat + bonusStat) + ")");
+
+        }
+    
+        int conMod = ((finalStats.get("Constitution") - 10) / 2);
+        int maxHP = chosenJob.getHP(conMod);
+        System.out.println("Lastly, your vitals");
+        System.out.println("Max HP: " + maxHP);
+        System.out.println("Walking speed: " + chosenRace.getWalkingSpeed() + "ft");
+        if (chosenRace.getDarkVisionRadius() > 0) {
+            System.out.println("Darkvision radius: " + chosenRace.getDarkVisionRadius() + "ft");
+        } else {
+            System.out.println();
+        }
+        System.out.println("Saving throws: " + chosenJob.getSavingThrows());
 
     }
 
@@ -789,21 +809,21 @@ public class CharacterCreator {
                     }
                 }
             } else if (input.equals("2")) {
-                while (true) {
                     String generatedName = race.randomNameGenerator(sex, stats);
                     System.out.println(generatedName + " was the name generated. Would you like to keep it? Y for yes, N for no");
                     if (scanner.nextLine().equalsIgnoreCase("Y")) {
                         return generatedName;
+                        
                     } else {
                         System.out.println("Rerolling name");
+                        continue;
                     }
-                }
-
             } else {
                 System.out.println("Invalid option. Please pick either 1 or 2");
                 scanner.nextLine();
 
             }
+            
         }
     }
 }
