@@ -15,7 +15,6 @@ public class Character {
     private Sex sex;
     private Race race;
     private Job job;
-    private Clan clan;
 
     public enum Alignment {
         LAWFUL_GOOD, NEUTRAL_GOOD, CHAOTIC_GOOD,
@@ -54,9 +53,6 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
-    }
-    public void setClan(Clan clan) {
-        this.clan = clan;
     }
 
 }

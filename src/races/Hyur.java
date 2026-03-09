@@ -51,7 +51,6 @@ public class Hyur extends Race {
             return;
         }
         clanBonuses();
-        hyurBonus();
     }
 
     @Override
@@ -67,7 +66,9 @@ public class Hyur extends Race {
 
     @Override
     public ArrayList<PlayerChoices> raceOptions() {
-        return null;
+        ArrayList<PlayerChoices> options = new ArrayList<>();
+        options.add(new PlayerChoices("What stat would you like to add 1 to?", Arrays.asList("Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma")));
+        return options;
     }
 
     public void hyurBonus(Stat choice) {
@@ -79,6 +80,20 @@ public class Hyur extends Race {
 	}
     @Override
     public void chosenVariables(String input) {
-
+        if(input.equalsIgnoreCase("Strength")) {
+            hyurBonus(Stat.STRENGTH);
+        } else if(input.equalsIgnoreCase("Dexterity")) {
+            hyurBonus(Stat.DEXTERITY);
+        } else if(input.equalsIgnoreCase("Constitution")) {
+            hyurBonus(Stat.CONSTITUTION);
+        }  else if(input.equalsIgnoreCase("Wisdom")) {
+            hyurBonus(Stat.WISDOM);
+        }  else if(input.equalsIgnoreCase("Intelligence")) {
+            hyurBonus(Stat.INTELLIGENCE);
+        } else if(input.equalsIgnoreCase("Charisma")) {
+            hyurBonus(Stat.CHARISMA);
+        } else {
+            System.out.println("Invalid choice");
+        }
     }
 }

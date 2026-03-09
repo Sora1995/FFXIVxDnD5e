@@ -64,7 +64,7 @@ public abstract class Job {
 		return 0;
 	}
 
-    public String getName() {
+    public String getJobName() {
         return name;
     }
     public int getHP(int conModifier) {

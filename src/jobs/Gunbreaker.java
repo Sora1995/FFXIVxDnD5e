@@ -14,7 +14,7 @@ public ArrayList<PlayerChoices> addJobOptions() {
         equipment.add(new PlayerChoices("Pick a martial weapon that has been converted to a gunblade: ", getMartialWeaponsList()));
         equipment.add(new PlayerChoices("Pick from one of the following to add to your starter bag: ", Arrays.asList("Scale Mail", "Leather Armour")));
         equipment.add(new PlayerChoices("Now, pick between the following: ", Arrays.asList("A shield", "A pistol and 20 bullets")));
-        equipment.add(new PlayerChoices("Finally, pick a pack to start with: ", Arrays.asList("Explorer's Pack", "Dungeoneer's Pack")));\
+        equipment.add(new PlayerChoices("Finally, pick a pack to start with: ", Arrays.asList("Explorer's Pack", "Dungeoneer's Pack")));
         return equipment;
 }
 

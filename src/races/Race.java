@@ -31,7 +31,7 @@ public abstract class Race extends main.Character {
 	}
 
     protected Map<Stat,Integer> statBonuses;
-    protected Map<Stat,Integer> initialRaceBonuses;
+    protected Map<Stat,Integer> initialRaceBonuses =  new HashMap<>();
     
     public Race() {
         this.statBonuses = new HashMap<>();

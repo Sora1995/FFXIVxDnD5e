@@ -6,7 +6,7 @@ public class AuRa extends Race {
 	private AuRaClan clanChoice;
 	private ArrayList<String> raenMNames = new ArrayList<>(Arrays.asList("Osetu", "Keimei" , "Rakuyo", "Hien", "Genbu", "Fugetsu", "Unzan", "Masatsuchi",
 			"Izuna", "Sagan", "Karaku", "Chikamasa", "Rokuyari", "Tanehiro" , "Yoshikore" , "Hidetake", "Norishig"));
-	private ArrayList<String> raenFNames = new ArrayList<>(Arrays.asList("Yachiyo", "Kikyo", "Awayuki", "Narumi", "Azami", "Kurenai", "Tsubaki", "Chidori", "Suzume", "Mizuki", "Ibuki");
+	private ArrayList<String> raenFNames = new ArrayList<>(Arrays.asList("Yachiyo", "Kikyo", "Awayuki", "Narumi", "Azami", "Kurenai", "Tsubaki", "Chidori", "Suzume", "Mizuki", "Ibuki"));
 	private ArrayList<String> xaelaMNames = new ArrayList<>(Arrays.asList("Arslang", "Agasiletai", "Chaghagan", "Chuacenur", "Bayan", "Luvsan", "Bujeg",
 			"Khalja", "Charakha", "Khaishan", "Chigu", "Jebke", "Cirina", "Narangerel", "Ogul", "Altan"));
 	private ArrayList<String> xaelaFNames = new ArrayList<>(Arrays.asList("Boragchin", "Narengawa", "Chotan", "Qoyar", "Khorchi", "Ogul", "Checheyigen", "Altun", "Eji",
@@ -48,7 +48,6 @@ public class AuRa extends Race {
 
 	public AuRa() {
 		super();
-		clanData();
 		this.name = "Au Ra";
 		this.walkingSpeed = 30;
 		this.description = "The Au Ra hail from the east, and are marked by their scales and horns. These people have a stark difference in height between the the males and females of the species. The males tend to be much taller than the females and many other races, while the females on average are shorter than many of the other races. The dark scaled Xaela are nomads who travel the Azim Steppe and have developed a wide variety of customs which change from tribe to tribe. The light scaled Raen live largely integrated into modern society, giving up their nomadic ways for peaceful coexistence with the other races.";

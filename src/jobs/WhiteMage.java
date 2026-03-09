@@ -12,7 +12,7 @@ public class WhiteMage extends Job {
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
         equipment.add(new PlayerChoices("Pick between the following weapons to add to your starting bag: ", Arrays.asList("Dagger", "Quarterstaff")));
-        ArrayList<String> crossbowOrSimple = new ArrayList<>(getSimpleWeaponsList());\
+        ArrayList<String> crossbowOrSimple = new ArrayList<>(getSimpleWeaponsList());
         crossbowOrSimple.add("Light crossbow and 20 bolts");
         equipment.add(new PlayerChoices("Now, pick between the following weapons: ", crossbowOrSimple));
         equipment.add(new PlayerChoices("Finally, pick between the following packs: ", Arrays.asList("Explorer's Pack", "Scholar's Pack")));
