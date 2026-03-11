@@ -3,8 +3,6 @@ package main;
 import races.Race;
 import jobs.Job;
 
-import java.util.*;
-
 public class Character {
     public enum Sex {
         MALE,

@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class Hyur extends Race {
     private HyurClan clanChoice;
-    private Stat hyurStat;
     private ArrayList<String> midMNames = new ArrayList<>(
             Arrays.asList("Odard", "Redwald", "Kenward", "Herebert", "Acwuld", "Edward", "Roderic", "Eadwine"));
     private ArrayList<String> midFNames = new ArrayList<>(Arrays.asList("Rowena", "Hilda", "Agatha", "Hrodwyn",
@@ -101,7 +100,6 @@ public class Hyur extends Race {
     }
 
     public void hyurBonus(Stat choice) {
-        this.hyurStat = choice;
         startingStats();
         clanBonuses();
         addBonus(choice, 1);
