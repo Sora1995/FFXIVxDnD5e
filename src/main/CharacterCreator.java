@@ -36,12 +36,13 @@ public class CharacterCreator {
         chosenJob.applyJob();
         Alignment chosenAlignment = chooseAlignment(scan);
         String[] words = chosenAlignment.name().split("_");
-        String result = "";
-        
-        for (int i = 0; i < words.length; i++) {
-            String capitalized = words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
-            result += capitalized + " ".trim();
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            String capitalized = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+            result.append(capitalized).append(" ".trim());
         }
+        String finalAlignment = result.toString().trim();
         
         characterName = getName(scan, chosenRace, chosenSex, finalStats);
 
@@ -81,10 +82,9 @@ public class CharacterCreator {
         }
         if (chosenRace instanceof Garlean) {
             ((Garlean) chosenRace).getGarleanTitle();
-
         }
         System.out.println("Congrats, your " + chosenRace.getName() + " " + chosenJob.getJobName() + " named "
-                + characterName  + " aligned as " + chosenAlignment + " has been created!");
+                + characterName  + " aligned as " + finalAlignment + " has been created!");
         chosenJob.printInventory();
         String[] stats = { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
         System.out.println("\nHere are your stats");
