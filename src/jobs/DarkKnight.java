@@ -3,11 +3,17 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Dark Knight job and its specific choices */
 public class DarkKnight extends Job {
+    /** Sets the name and description */
     public DarkKnight() {
-    }
+        this.name = "Dark Knight";
+        this.description = "A knight who harnesses forbidden powers to protect the weak";
 
+    }
+/**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -23,13 +29,14 @@ public class DarkKnight extends Job {
         return equipment;
         }
 
-
+/**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Dark Knight";
+
         this.hitDice = "d10";
         this.baseHP = 10;
         this.savingThrows = "Constitution, Charisma";
-        this.description = "A knight who harnesses forbidden powers to protect the weak";
     }
 }

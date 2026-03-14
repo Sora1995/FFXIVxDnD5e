@@ -1,20 +1,29 @@
 package races;
+import main.Character.*;
 import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
-
+/** Represents the Roegadyn race and its specific stat bonuses */
 public class Roegadyn extends Race {
 	private RoegadynClan clanChoice;
-	private ArrayList<String> roeMSeaWolvesNames = new ArrayList<>(Arrays.asList("Klynnahct", "Flazfolg", "Roehahtyn", "Broenstymm", "Haergeiss", "Nedyrsatz", "Unsynfarr"));
-	private ArrayList<String> roeFSeaWolvesNames = new ArrayList<>(Arrays.asList("Rhotbryda", "Hezzwyb", "Rhenbryda", "Grynegeim", "Ketenbryda", "Skaenswys", "Swozthota", "Wyznthota", "Rhotbryda", "Trahggeim"));
-	private ArrayList<String> roeMHellNames = new ArrayList<>(Arrays.asList("Aware Sun", "Major Wind", "Blue Yew", "Grateful Forest", "Surprised Cavern", "Bright Island", "Flawed Lake", "Fearless Oak", "Dirt Snow", "Stark Crow"));
-	private ArrayList<String> roeFHellNames = new ArrayList<>(Arrays.asList("Soft Pea", "Obedient Apple", "Honored Eclipse", "Orange Autumn", "Silly Feather", "Carefree Locust", "Secret Lavender", "Careful Vapor", "Optimistic Blossom", "Innocent Daffodil"));
+	private final ArrayList<String> roeMSeaWolvesNames = new ArrayList<>(Arrays.asList("Klynnahct", "Flazfolg", "Roehahtyn", "Broenstymm", "Haergeiss", "Nedyrsatz", "Unsynfarr"));
+	private final ArrayList<String> roeFSeaWolvesNames = new ArrayList<>(Arrays.asList("Rhotbryda", "Hezzwyb", "Rhenbryda", "Grynegeim", "Ketenbryda", "Skaenswys", "Swozthota", "Wyznthota", "Rhotbryda", "Trahggeim"));
+	private final ArrayList<String> roeMHellNames = new ArrayList<>(Arrays.asList("Aware Sun", "Major Wind", "Blue Yew", "Grateful Forest", "Surprised Cavern", "Bright Island", "Flawed Lake", "Fearless Oak", "Dirt Snow", "Stark Crow"));
+	private final ArrayList<String> roeFHellNames = new ArrayList<>(Arrays.asList("Soft Pea", "Obedient Apple", "Honored Eclipse", "Orange Autumn", "Silly Feather", "Carefree Locust", "Secret Lavender", "Careful Vapor", "Optimistic Blossom", "Innocent Daffodil"));
+
+	/**
+	 * Represents the two distinct clans of the Roegadyn race
+	 */
 	public enum RoegadynClan {
 		SEA_WOLVES, HELLSGUARD
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String randomNameGenerator(Sex sex, HashMap<String, Integer> stats) {
 		Random rand = new Random();
@@ -29,21 +38,28 @@ public class Roegadyn extends Race {
 		}
 	}
 
-	@Override
-	public void printClanMenu() {
-
-	}
-
-	public Roegadyn() {
+	/**
+	 * Constructs a new Roegadyn character, initializing their specific base stats,
+	 * walking speed, and racial traits.
+	 */
+    public Roegadyn() {
 		super();
 		this.name = "Roegadyn";
 		this.walkingSpeed = 30;
 		this.description = "The Roegadyn are large, hulking people who hail from the mountains and the sea. The Sea Wolves are known as famed pirates and settled the coastal city state Limsa Lominsa, while the Hellsguard live in villages atop mountains and volcanoes, acting as keepers of the land, believing such locations to be portals to other worlds.";
 		addBonus(Stat.CONSTITUTION, 2);
 	}
+
+	/**
+	 * Assigns the bonus racial stat points
+	 */
 	protected void raceStats() {
 		addBonus(Stat.CONSTITUTION, 2);
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public void pickClan(String clan) {
 		startingStats();
 		initialRaceBonuses.put(Stat.CONSTITUTION, 2);
@@ -59,8 +75,11 @@ public class Roegadyn extends Race {
 		}
 		raceStats();
 		clanBonuses();
-
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void clanBonuses() {
 		if (clanChoice == RoegadynClan.SEA_WOLVES) {
@@ -70,10 +89,17 @@ public class Roegadyn extends Race {
 			}
 		}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public ArrayList<PlayerChoices> raceOptions() {
 		return null;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void chosenVariables(String input) {
 

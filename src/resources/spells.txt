@@ -1,0 +1,422 @@
+#ASTROLOGIAN
+*Aerora
+Alarm
+Bane
+Bless
+*Bravery
+Cause Fear
+Ceremony
+Charm Person
+Color Spray
+Comprehend Languages
+Create of Destroy Water
+Cure Wounds
+*Cure
+Detect Evil and Good
+Detect Magic
+Detect Poison and Disease
+Dissonant Whispers
+Faerie Fire
+Feather Fall
+Gift of Alacrity
+Guiding Bolt
+Healing Word
+Heroism
+Hex
+Identify
+Illusory Script
+Jump
+Mage Armor
+Magic Missile
+Magnify Gravity
+Purify Food and Drink
+Sanctuary
+Shield of Faith
+Silent Image
+Silvery Barbs
+Sleep
+Speak with Animals
+*Stonra
+Unseen Servant
+*Watera
+Witch Bolt
+#END
+#GRIDANIAN BARD
+Absorb Elements
+*Aerora
+Alarm
+Bane
+*Biora
+*Bravery
+*Break
+Catapult
+Charm Person
+Command
+Cure Wounds
+*Cure
+Detect Magic
+Detect Poison and Disease
+Disguise Self
+Dissonant Whispers
+Faerie Fire
+Feather Fall
+Hail of Thorns
+Healing Word
+Heroism
+Identify
+Hunter’s Mark
+Jump
+Longstrider
+Silvery Barbs
+Snare
+Tasha’s Hideous Laughter
+Thunderwave
+Zephyr Strike
+#END
+#BLACK MAGE
+Absorb Elements
+Bane
+*Biora
+*Blizzara
+*Break
+Burning Hands
+Chaos Bolt
+Charm Person
+*Dark
+Detect Magic
+Disguise Self
+*Drain
+Expeditious Retreat
+False Life
+Feather Fall
+Find Familiar
+Find Steed
+*Fira
+Fog Cloud
+Frost Fingers
+Grease
+Hellish Rebuke
+Hex
+Ice Knife
+Illusory Script
+Inflict Wounds
+Jump
+Longstrider
+Mage Armor
+Magic Missile
+*Osmose
+Ray of Sickness
+*Scathe
+Shield
+Silent Image
+Sleep
+*Thundara
+#END
+#DANCER
+*Aerora
+Bane
+Bless
+*Bravery
+Cause Fear
+Compelled Duel
+Cure Wounds
+*Cure
+Detect Evil and Good
+Detect Magic
+Detect Poison and Disease
+Ensnaring Strike
+Entangle
+Expeditious Retreat
+Faerie Fire
+*Fira
+Fog Cloud
+Healing Word
+Heroism
+Hex
+Hunter’s Mark
+Mage Armor
+Protection from Evil and Good
+Shield of Faith
+Silent Image
+Tasha’s Caustic Brew
+Tasha’s Hideous Laughter
+Witch Bolt
+Zephyr Strike
+#END
+#PICTOMANCER
+*Aerora
+Arms of Hadar
+*Blizzara
+Chromatic Orb
+Color Spray
+Create of Destroy Water
+Cure Wounds
+Detect Magic
+Disguise Self
+*Drain
+Entangle
+Faerie Fire
+Find Familiar
+*Fira
+Fog Cloud
+Goodberry
+Grease
+Healing Word
+Ice Knife
+Illusory Script
+Mage Armor
+Magic Missile
+*Osmose
+Purify Food and Drink
+Shield
+*Stonra
+Tenser’s Floating Disk
+*Thundara
+*Watera
+Witch Bolt
+#END
+#REAPER
+Arcane Weapon
+Armor of Agathys
+Arms of Hadar
+Bane
+*Bravery
+*Break
+Cause Fear
+Chaos Bolt
+Compelled Duel
+Comprehend Languages
+Cure Wounds
+Dark
+Detect Evil and Good
+Detect Magic
+Drain
+False Life
+Find Steed
+Fog Cloud
+Gentle Repose
+Hellish Rebuke
+Hex
+Hunter’s Mark
+Ice Knife
+Identify
+Inflict Wounds
+Jump
+Longstrider
+*Osmose
+Protection from Evil and good
+Ray of Sickness
+Shield
+Silent Image
+Unseen Servant
+Wrathful Smite
+#END
+#RED MAGE
+Absorb Elements
+*Aerora
+*Banish
+Burning Hands
+Charm Person
+Chromatic Orb
+Cure Wounds
+*Cure
+Detect Magic
+Disguise Self
+*Drain
+Earth Tremor
+Feather Fall
+*Fira
+Frost Fingers
+Healing Word
+Hellish Rebuke
+Jump
+Mage Armor
+Magic Missile
+*Osmose
+Shield
+*Stonra
+*Thundara
+Thunderwave
+*Verthunder
+Witch Bolt
+Zephyr Strike
+#END
+#SAGE
+Absorb Elements
+Alarm
+Armor of Agathys
+Bane
+*Bravery
+Catapult
+Cause Fear
+Chromatic Orb
+Color Spray
+Comprehend Languages
+Cure Wounds
+*Cure
+Detect Evil and Good
+Detect Magic
+Detect Poison and Disease
+*Drain
+Expeditious Retreat
+Faerie Fire
+Feather Fall
+Find Familiar
+Healing Word
+Heroism
+Hex
+Identify
+Illusory Script
+Inflict Wounds
+Jump
+Longstrider
+Mage Armor
+Magic Missile
+*Osmose
+Protection from Evil and Good
+Ray of Sickness
+Sanctuary
+Shield
+Silent Image
+Sleep
+Snare
+Tenser’s Floating Disk
+*Thundara
+Unseen Servant
+Witch Bolt
+#END
+#SCHOLAR
+Absorb Elements
+Alarm
+Bane
+*Biora
+*Bravery
+Catapult
+Cause Fear
+Charm Person
+Chromatic Orb
+Color Spray
+Command
+Comprehend Languages
+Cure Wounds
+*Cure
+Detect Magic
+Detect Poison and Disease
+Faerie Fire
+Feather Fall
+Find Familiar
+Fog Cloud
+Guiding Bolt
+Healing Word
+Heroism
+Identify
+Illusory Script
+Inflict Wounds
+Jump
+Longstrider
+Mage Armor
+Magic Missile
+Purify Food and Drink
+Ray of Sickness
+*Ruinra
+Shield
+Silent Image
+Silvery Barbs
+Sleep
+Snare
+Tasha’ Caustic Brew
+Tasha’s Hideous Laughter
+Tenser’s Floating Disk
+Unseen Servant
+Zephyr Strike
+#END
+#SUMMONER
+Absorb Elements
+*Aerora
+Armor of Agathys
+*Blizzara
+Burning Hands
+Chaos Bolt
+Chromatic Orb
+Create or Destroy Water
+Cure Wounds
+Detect Magic
+*Drain
+Earth Tremor
+Faerie Fire
+Feather Fall
+*Fira
+Fog Cloud
+Frost Fingers
+Healing Word
+Hellish Rebuke
+Heroism
+Ice Knife
+Jump
+Longstrider
+Mage Armor
+Magic Missile
+*Osmose
+*Ruinra
+Shield
+*Stonra
+*Thundara
+Thunderwave
+Unseen Servant
+*Watera
+Witch Bolt
+Zephyr Strike
+#END
+#WHITE MAGE
+*Aerora
+Bane
+*Banish
+Bless
+*Bravery
+Ceremony
+Command
+Create or Destroy Water
+Cure Wounds
+*Cure
+Detect Evil and Good
+Detect Magic
+Detect Poison and Disease
+Entangle
+Gift of Alacrity
+Goodberry
+Guiding Bolt
+Healing Word
+Inflict Wounds
+Mage Armour
+Protection from Evil and Good
+Purify Food and Drink
+Shield of Faith
+Snare
+*Stonra
+*Watera
+2nd level
+Aid
+Augury
+*Banishra
+Barksin
+Blindness/Deafness
+Calm Emotions
+Continual Flame
+*Cura
+Dust Devil
+*Faith
+Find Traps
+Gentle Repose
+Gust of Wind
+Hold Person
+Lesser Restoration
+Locate Object
+Prayer of Healing
+Silence
+Spike Growth
+Spiritual Weapon
+Summon Beast
+Warding Bond
+Warding Wind
+Zone of Truth
+#END

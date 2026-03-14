@@ -3,11 +3,17 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Gunbreaker job and its specific choices */
 public class Gunbreaker extends Job {
+    /** Sets the name and description */
     public Gunbreaker() {
-    }
+        this.name = "Gunbreaker";
+        this.description = "A bodyguard who augments their weaponry with manatriggers to deliver powerful attacks";
 
+    }
+    /**
+     * {@inheritDoc}
+     */
     @Override
 public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -17,14 +23,14 @@ public ArrayList<PlayerChoices> addJobOptions() {
         equipment.add(new PlayerChoices("Finally, pick a pack to start with: ", Arrays.asList("Explorer's Pack", "Dungeoneer's Pack")));
         return equipment;
 }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Gunbreaker";
         this.hitDice = "d10";
         this.baseHP = 10;
         this.savingThrows = "Strength, Dexterity";
-        this.description = "A bodyguard who augments their weaponry with manatriggers to deliver powerful attacks";
         addEquipment("Smith's tools");
     }
 }

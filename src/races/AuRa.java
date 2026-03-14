@@ -1,7 +1,9 @@
 package races;
 import main.PlayerChoices;
 import java.util.*;
+import main.Character.Sex;
 
+/** Represents the Au Ra race and its specific stat bonuses */
 public class AuRa extends Race {
 	private AuRaClan clanChoice;
 	private ArrayList<String> raenMNames = new ArrayList<>(Arrays.asList("Osetu", "Keimei" , "Rakuyo", "Hien", "Genbu", "Fugetsu", "Unzan", "Masatsuchi",
@@ -14,11 +16,18 @@ public class AuRa extends Race {
 	private ArrayList<String> clanNames = new ArrayList<>(Arrays.asList("Adarkim", "Angura", "Arulaq", "Avagnar", "Bairon", "Bayaqud", "Bolir", "Borlaa", "Buduga", "Dalamiq", "Iriq", "Jhungid", "Kharlu", "Khatayin", "Malqir", "Mankhad", "Mierqid",
 			"Noykin", "Olkund", "Dazkar", "Oronir", "Oroq", "Qerel", "Torgud", "Tumet", "Ugund", "Uyagir", "Dhoro", "Orben", "Ejinn", "Dotharl", "Hotgo", "Sagahl", "Kahkol", "Kha", "Mol", "Gesi",
 			"Kagon", "Goro", "Gharl", "Dataq", "Haragin", "Ura", "Moks", "Geneq", "Horo", "Himaa", "Malaguld", "Urumet", "Qalli"));
-	private ArrayList<String> familyNames = new ArrayList<>(Arrays.asList("Yuzuka", "Obinata", "Yuzuka", "Yatsurugi", "Rokuyari", "Godo", "Tabito", "Yumishi", "Musa"));
+	private final ArrayList<String> familyNames = new ArrayList<>(Arrays.asList("Yuzuka", "Obinata", "Yatsurugi", "Rokuyari", "Godo", "Tabito", "Yumishi", "Musa"));
+
+	/**
+	 * Represents the two distinct Auri clans
+	 */
 	public enum AuRaClan {
 		RAEN, XAELA
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String randomNameGenerator(Sex sex, HashMap<String, Integer> stats) {
 		Random rand = new Random();
@@ -40,22 +49,27 @@ public class AuRa extends Race {
 		}
 		return randomFirstName + " " + randomLastName;
 	}
-
-	@Override
-	public void printClanMenu() {
-
-	}
-
+	/**
+	 * Constructs a new Au Ra character, initializing their specific base stats,
+	 * walking speed, and racial traits.
+	 */
 	public AuRa() {
 		super();
 		this.name = "Au Ra";
 		this.walkingSpeed = 30;
 		this.description = "The Au Ra hail from the east, and are marked by their scales and horns. These people have a stark difference in height between the the males and females of the species. The males tend to be much taller than the females and many other races, while the females on average are shorter than many of the other races. The dark scaled Xaela are nomads who travel the Azim Steppe and have developed a wide variety of customs which change from tribe to tribe. The light scaled Raen live largely integrated into modern society, giving up their nomadic ways for peaceful coexistence with the other races.";
 	}
+
+	/**
+	 * Assigns the bonus racial stat points
+	 */
 	protected void raceStats() {
 		addBonus(Stat.WISDOM, 2);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void pickClan(String clan) {
 		startingStats();
 		initialRaceBonuses.put(Stat.WISDOM, 2);
@@ -72,7 +86,10 @@ public class AuRa extends Race {
 		raceStats();
 		clanBonuses();
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void clanBonuses() {
 		if (clanChoice == AuRaClan.RAEN) {
@@ -82,11 +99,17 @@ public class AuRa extends Race {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public ArrayList<PlayerChoices> raceOptions() {
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void chosenVariables(String input) {
 

@@ -6,26 +6,34 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
+import main.Character.Sex;
 
+/** Represents the Hyur race and its specific stat bonuses */
 public class Hyur extends Race {
     private HyurClan clanChoice;
-    private ArrayList<String> midMNames = new ArrayList<>(
+    private final ArrayList<String> midMNames = new ArrayList<>(
             Arrays.asList("Odard", "Redwald", "Kenward", "Herebert", "Acwuld", "Edward", "Roderic", "Eadwine"));
-    private ArrayList<String> midFNames = new ArrayList<>(Arrays.asList("Rowena", "Hilda", "Agatha", "Hrodwyn",
+    private final ArrayList<String> midFNames = new ArrayList<>(Arrays.asList("Rowena", "Hilda", "Agatha", "Hrodwyn",
             "Goldyna", "Hounild", "Edusa", "Beyhild", "Mathilda", "Tonild", "Somerhild", "Rimilde"));
-    private ArrayList<String> highMNames = new ArrayList<>(Arrays.asList("Sigmundr", "Arnar", "Armond", "Varin", "Bard",
+    private final ArrayList<String> highMNames = new ArrayList<>(Arrays.asList("Sigmundr", "Arnar", "Armond", "Varin", "Bard",
             "Hordr", "Ogmundr", "Hallgrim", "Thordr", "Raubahn"));
-    private ArrayList<String> highFNames = new ArrayList<>(Arrays.asList("Marte", "Cathrine", "Yngvildr", "Helene",
+    private final ArrayList<String> highFNames = new ArrayList<>(Arrays.asList("Marte", "Cathrine", "Yngvildr", "Helene",
             "Kolgrima", "Katie", "Myrun", "Kaolin", "Kaia", "Kamilla"));
-    private ArrayList<String> midSurnames = new ArrayList<>(Arrays.asList("Taylor", "Faulkner", "Browne", "Parker",
+    private final ArrayList<String> midSurnames = new ArrayList<>(Arrays.asList("Taylor", "Faulkner", "Browne", "Parker",
             "Forrest", "River", "Miller", "Draper", "Fletcher", "Hill", "Thatcher"));
-    private ArrayList<String> highSurnames = new ArrayList<>(Arrays.asList("Fury", "Burne", "Savage", "Stronge",
+    private final ArrayList<String> highSurnames = new ArrayList<>(Arrays.asList("Fury", "Burne", "Savage", "Stronge",
             "Strongaxe", "Blood", "Furor", "Shatterfist", "Strongblade", "Ironwill"));
 
+    /**
+     * Represents the three distinct clans of the Hyur
+     */
     public enum HyurClan {
         MIDLANDERS, HIGHLANDERS, PADJAL
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String randomNameGenerator(Sex sex, HashMap<String, Integer> stats) {
         Random rand = new Random();
@@ -48,13 +56,10 @@ public class Hyur extends Race {
         return randomFirstName + " " + randomLastName;
     }
 
-    
-
-    @Override
-    public void printClanMenu() {
-
-    }
-
+    /**
+     * Constructs a new Hyur character, initializing their specific base stats,
+     * walking speed, and racial traits.
+     */
     public Hyur() {
         super();
         this.name = "Hyur";
@@ -62,6 +67,9 @@ public class Hyur extends Race {
         this.description = "The Hyur have spread across the entirety of the world, making it difficult to trace what their homeland truly is. There are the average sized Midlanders, named for the elevation in which their sub species lived for many years, and the taller, more muscular highlanders, who lived in the high mountains for their declared homeland.";
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public void pickClan(String clan) {
         startingStats();
         initialRaceBonuses.put(Stat.WISDOM, 2);
@@ -80,6 +88,9 @@ public class Hyur extends Race {
         clanBonuses();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clanBonuses() {
         if (clanChoice == HyurClan.MIDLANDERS) {
@@ -91,6 +102,9 @@ public class Hyur extends Race {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> raceOptions() {
         ArrayList<PlayerChoices> options = new ArrayList<>();
@@ -99,6 +113,10 @@ public class Hyur extends Race {
         return options;
     }
 
+    /**
+     * Assigns the bonus to the stat chosen by the user
+     * @param choice the stat chosen by the user
+     */
     public void hyurBonus(Stat choice) {
         startingStats();
         clanBonuses();
@@ -106,6 +124,10 @@ public class Hyur extends Race {
         System.out.println("+1 additional bonus added to " + choice);
     }
 
+    /**
+     * A unique method for picking what stat to assign the bonus to
+     * @param input Which stat to assign the bonus to
+     */
     @Override
     public void chosenVariables(String input) {
         

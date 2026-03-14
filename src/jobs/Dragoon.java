@@ -3,11 +3,17 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Dragoon class and its specific choices */
 public class Dragoon extends Job {
+    /** Sets the name and the description */
     public Dragoon() {
-    }
+        this.name = "Dragoon";
+        this.description = "A high flying warrior who specializes in fighting and utilizes the power of dragons";
 
+    }
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -19,14 +25,14 @@ public class Dragoon extends Job {
         equipment.add(new PlayerChoices("Finally, select a pack to start with: ", Arrays.asList("Explorer's Pack", "Dungeoneer's Pack")));
         return equipment;
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Dragoon";
         this.hitDice = "d10";
         this.baseHP = 10;
         this.savingThrows = "Strength, Dexterity";
-        this.description = "A high flying warrior who specializes in fighting and utilizes the power of dragons";
         addEquipment("Blessed Dragoon's stone");
     }
 }

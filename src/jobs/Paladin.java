@@ -4,11 +4,17 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Paladin job and its specific choices */
 public class Paladin extends Job {
+    /** Sets the name and description */
     public Paladin() {
-    }
+        this.name = "Sultansworn Paladin";
+        this.description = "An armored knight who uses their aether to empower their equipment";
 
+    }
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -24,14 +30,14 @@ public class Paladin extends Job {
         equipment.add(new PlayerChoices("Finally, pick which pack you want to add to your starting bag: ", Arrays.asList("Explorer's Pack", "Dungeoneer's Pack")));
         return equipment;
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Sultansworn Paladin";
         this.hitDice = "d10";
         this.baseHP = 10;
         this.savingThrows = "Constitution, Charisma";
-        this.description = "An armored knight who uses their aether to empower their equipment";
         addEquipment("A chain shirt and a holy symbol related to your home region");
     }
 }

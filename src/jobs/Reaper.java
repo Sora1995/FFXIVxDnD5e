@@ -3,10 +3,17 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Reaper job and its specific choices */
 public class Reaper extends Job {
+    /** Sets the name and description */
     public Reaper() {
+        this.name = "Reaper";
+        this.description = "A fighter who calls on an ally from the void to aide them in battle.";
+
     }
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -18,14 +25,14 @@ public class Reaper extends Job {
         equipment.add(new PlayerChoices("Finally, pick between the following packs: ", Arrays.asList("Dungeoneer's Pack", "Explorer's Pack")));
         return equipment;
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Reaper";
         this.hitDice = "d10";
         this.baseHP = 10;
         this.savingThrows = "Strength, Wisdom";
-        this.description = "A fighter who calls on an ally from the void to aide them in battle.";
         addEquipment("A Momento bestowed to the reaper by the voidsent");
     }
 }

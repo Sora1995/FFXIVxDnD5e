@@ -4,10 +4,16 @@ import main.PlayerChoices;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/** Represents the Warrior job and its specific choices */
 public class Warrior extends Job {
+    /** Sets the name and description */
     public Warrior() {
+        this.name = "Warrior";
+        this.description = "A fighter who uses immense strength and bulk to overpower opponents";
     }
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ArrayList<PlayerChoices> addJobOptions() {
         ArrayList<PlayerChoices> equipment = new ArrayList<>();
@@ -23,14 +29,14 @@ public class Warrior extends Job {
         return equipment;
 
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void applyJob() {
-        this.name = "Warrior";
         this.hitDice = "d12";
         this.baseHP = 12;
         this.savingThrows = "Strength, Constitution";
-        this.description = "A fighter who uses immense strength and bulk to overpower opponents";
         addEquipment("Carved wooden idol related to heritage");
     }
 }

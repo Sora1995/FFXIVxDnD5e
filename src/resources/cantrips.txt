@@ -1,0 +1,221 @@
+#ASTROLOGIAN
+*Aero
+Blade Ward
+Dancing Lights
+*Demi
+Friends
++Frostbite
+Guidance
+Gust
+Light
+Mage Hand
++Magic Stone
+*Malefic
+Mending
+Message
++Mind Sliver
+Minor Illusion
++Mold Earth
+Resistance
+Sacred Flame
+Spare the Dying
+*Stone
+Thaumaturgy
+True Strike
+*Water
++Word of Radiance
+#END
+#BLACK MAGE
+*Bio
+*Blizzard
+Blade Ward
+Chill Touch
++Control Flames
++Create Bonfire
+Dancing Lights
+*Fire
+Fire Bolt
++Frostbite
++Green-Flame Blade
++Infestation
+Light
++Lightning Lure
+Mage Hand
++Magic Stone
+Produce Flame
+Ray of Frost
++Sapping Sting
+Shocking Grasp
+Thaumaturgy
+*Thunder
++Toll the Dead
+Vicious Mockery
+#END
+#DANCER
+*Aerora
+Bane
+Bless
+*Bravery
++Cause Fear
+Compelled Duel
+Cure Wounds
+*Cure
+Detect Evil and Good
+Detect Magic
+Detect Poison and Disease
+Ensnaring Strike
+Entangle
+Expeditious Retreat
+Faerie Fire
+*Fira
+Fog Cloud
+Healing Word
+Heroism
+Hex
+Hunter’s Mark
+Mage Armor
+Protection from Evil and Good
+Shield of Faith
+Silent Image
++Tasha’s Caustic Brew
+Tasha’s Hideous Laughter
+Witch Bolt
++Zephyr Strike
+#END
+#PICTOMANCER
+*Aero
+Acid Splash
+*Blizzard
+Create Bonfire
+Dancing Lights
+Druidcraft
+*Fire
+Frostbite
+Gust
+Infestations
+Light
+Lightning Lure
+Mage Hand
++Magic Stone
++Mold Earth
+Poison Spray
+Prestidigitation
+Produce Flame
++Shape Water
+*Stone
++Sword Burst
+*Thunder
+*Water
+#END
+#RED MAGE
+*Aero
+Blade Ward
++Booming Blade
+Dancing Lights
+Fire Bolt
+*Fire
++Green-Flame Blade
++Gust
++Jolt
++Lightning Lure
+Mage Hand
+Magic Stone
++Mold Earth
+Prestidigitation
+Ray of Frost
+Shocking Grasp
+*Stone
++Sword Burst
+*Thunder
+Thunderclap
+True Strike
++Word of Radiance
+#END
+#SAGE
+Blade Ward
+Dancing Lights
+Light
++Lightning Lure
+Mage Hand
++Magic Stone
+Mending
+Message
++Mind Sliver
+Minor Illusion
+Prestidigitation
+Resistance
++Sapping Sting
+Spare the Dying
+*Thunder
+Thunderclap
+True Strike
+#END
+#SCHOLAR
+Acid Splash
+*Bio
+Blade Ward
+Dancing Lights
+Friends
++Infestation
+Light
+Mage Hand
++Magic Stone
+Mending
+Message
++Mind Sliver
+Minor Illusion
+Poison Spray
+Prestidigitation
++Primal Savagery
+Resistance
+*+Ruin
++Sapping Sting
+Spare the Dying
++Sword Burst
+True Strike
+#END
+#SUMMONER
+*Aero
+Blade Ward
+*Blizzard
++Booming Blade
++Control Flames
++Create Bonfire
+Dancing Lights
+*Fire
++Frostbite
++Gust
+Light
++Lightning Lure
+Mage Hand
++Mind Sliver
+Minor Illusion
++Mold Earth
+Produce Flame
+Resistance
+*+Ruin
++Shape Water
+*Stone
+Thaumaturgy
+*Thunder
+*Water
+#WHITE MAGE
+*Aero
+Create Bonfire
+Druidcraft
+Friends
+Guidance
++Gust
++Infestation
+Light
+Mending
+Mold Earth
+Resistance
+Sacred Flame
+Shape Water
+Spare the Dying
+*Stone
++Thunderclap
+*Water
++Word of Radiance
+#END

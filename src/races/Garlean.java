@@ -1,16 +1,31 @@
 package races;
 import main.PlayerChoices;
-
+import main.Character.Sex;
 import java.util.*;
 
+/** Represents the Garlean race and its specific stat bonuses */
 public class Garlean extends Race {
     private GarleanTitles title;
+
+    /**
+     * Sets the Garlean title that is assigned to the character
+     * @param title The title being assigned to the character
+     */
     public void setGarleanTitle(GarleanTitles title) {
         this.title = title;
     }
+
+    /**
+     * Gets the Garlean title and returns it
+     * @return the title assigned to the Garlean character
+     */
     public GarleanTitles getGarleanTitle() {
         return this.title;
     }
+
+    /**
+     * Represents each of the titles of the Garlean Empire with descriptions
+     */
     public enum GarleanTitles {
         ZOS("Supreme leader of Garlamald"),
         YAE("Royal family member in line for the throne"),
@@ -42,6 +57,11 @@ public class Garlean extends Race {
         GarleanTitles(String description) {
             this.titleDescription = description;
         }
+
+        /**
+         * Gets the description of the Garlean title
+         * @return the description of the title
+         */
         public String getTitleDescription() {
             return this.titleDescription;
         }
@@ -53,6 +73,12 @@ public class Garlean extends Race {
     private final ArrayList<String> garleanFNames = new ArrayList<>(Arrays.asList("Adora", "Alma", "Belva", "Cella", "Elysia", "Gloria", "Julia", "Livia", "Lucia", "Minverva", "Octavia", "Rheya", "Silvia", "Vesta"));
     private final ArrayList<String> garleanSurnames = new ArrayList<>(Arrays.asList("Arvina", "Asina", "Baelsar", "Brutus", "Darunus", "Gabranth", "Galvus", "Garlond", "Hydra", "Junius", "Lexentale", "Messalla", "Priscus", "Scaeva"));
 
+    /**
+     * A special random name generator that implements the Garlean titles, allowing generation of a set list of random titles based on stats
+     * @param sex The sex of the character, used to determine first name
+     * @param stats The stats that were rolled from the dice. If there's a tie, defaults to the first in the List
+     * @return The formatted string containing the character's first name, chosen title, and last name
+     */
     @Override
     public String randomNameGenerator(Sex sex, HashMap<String, Integer> stats) {
         Random rand = new Random();
@@ -66,12 +92,12 @@ public class Garlean extends Race {
             randomFirstName = garleanFNames.get(rand.nextInt(garleanFNames.size()));
         }
         randomSurname = garleanSurnames.get(rand.nextInt(garleanSurnames.size()));
-
+        String[] statPriority = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
         String highestStat = "Strength";
-        int maxVal = stats.getOrDefault("Strength", 0);
+        int maxVal = -1;
 
-        for (String stat: stats.keySet()) {
-            if (stats.get(stat) > maxVal) {
+        for (String stat: statPriority) {
+            if (stats.getOrDefault(stat, -1) > maxVal) {
                 maxVal = stats.get(stat);
                 highestStat = stat;
             }
@@ -84,15 +110,13 @@ public class Garlean extends Race {
             default -> GarleanTitles.values()[rand.nextInt(GarleanTitles.values().length)];
         };
 
-        return randomFirstName + " " + randomTitle + " " + randomSurname;
+        return randomFirstName + " " + randomTitle.name().toLowerCase() + " " + randomSurname;
     }
 
-    @Override
-    public void printClanMenu() {
-        System.out.println("Garleans do not have clans; they use military and social titles instead.");
-    }
-
-
+    /**
+     * Constructs a new Garlean character, initializing their specific base stats,
+     * walking speed, and racial traits.
+     */
     public Garlean() {
         this.name = "Garlean";
         this.walkingSpeed = 30;
@@ -101,20 +125,32 @@ public class Garlean extends Race {
         addBonus(Stat.INTELLIGENCE, 1);
     }
 
+    /**
+     *{@inheritDoc}
+     */
     public void pickClan(String clan) {
         setGarleanTitle(GarleanTitles.valueOf(clan.toUpperCase()));
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void clanBonuses() {
 
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
 	public ArrayList<PlayerChoices> raceOptions() {
         return null;
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void chosenVariables(String input) {
         setGarleanTitle(GarleanTitles.valueOf(input.toUpperCase()));

@@ -1,16 +1,494 @@
 /*
-startuml
+@startuml
+class CharacterCreator {
+-getStats (scan : Scanner): HashMap<String, Integer>
+-auRaCreator (scan : Scanner): AuRa
+-elezenCreator (scan : Scanner): Elezen
+-garleanCreator (scan : Scanner): Garlean
+-hyurCreator (scan : Scanner): Hyur
+-lalafellCreator (scan : Scanner): Lalafell
+-miqoteCreator (scan : Scanner): Miqote
+-roegadynCreator (scan : Scanner): Roegadyn
+-vieraCreator (scan : Scanner): Viera
++getName (scanner: Scanner, race : Race, sex : Sex, stats : HashMap<String, Integer>): String
++printSpellBook (job : Job): void
+}
 
+abstract class Job {
+#name : String
+#description : String
+#hitDice : String
+#baseHP : int
+#savingThrows : String
+#proficiences : ArrayList<String>
+#startingEquipment : ArrayList<String>
+#knownCantrips : ArrayList<String>
+#firstLevelSpells : ArrayList<String>
+#numCantrips : int
+#spellSlots : int[]
+#numSpells : int
++getMartialWeaponsList() : ArrayList<String>
++getSimpleWeaponsList() : ArrayList<String>
++getValidSimpleWeaponsChoice() : PlayerChoices
++getArtisanToolsList() : ArrayList<String>
++getMusicalInstrumentsList() : ArrayList<String>
++Job()
++getJobName() : String
++getHP(conModifier : int): int
+{abstract} + addJobOptions() : ArrayList<PlayerChoices>
++addEquipment(item : String): void
+{abstract} + applyJob(): void
++printInventory() : void
++getSavingThrows() : String
++getDescription() : String
++startingSpells() : void
++loadFromFile(filePath : String, tag: String):ArrayList<String>
+~pickRandomSpell(spellList : ArrayList<String>, slot : int): ArrayList<String>
++getKnownCantrips() : ArrayList<String>
++getFirstLevelSpells() : ArrayList<String>
+}
+
+class Astrologian {
++Astrologian()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Bard {
++Bard()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class BlackMage {
++BlackMage()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Dancer {
++Dancer()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class DarkKnight {
++DarkKnight()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Dragoon {
++Dragoon()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Gunbreaker {
++Gunbreaker()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Machinist {
++Machinist()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Monk {
++Monk()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Ninja {
++Ninja()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Paladin {
++Paladin()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Pictomancer {
++Pictomancer()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Reaper {
++Reaper()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class RedMage {
++RedMage()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Sage {
++Sage()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Samurai {
++Samurai()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Scholar {
++Scholar()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Summoner {
++Summoner()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Viper {
++Viper()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class Warrior {
++Warrior()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+class WhiteMage {
++WhiteMage()
++addJobOptions() : ArrayList<PlayerChoices>
++applyJob() : void
+}
+
+abstract class Race {
+#name : String
+#description : String
+#walkingSpeed : int
+#statBonuses : Map<Stat, Integer>
+#initialRaceBonuses : Map<Stat,Integer>
+#darkVisionRadius : int
+{abstract} + randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>): String
++getDarkVisionRadius() : int
++Race()
+#startingStats() : void
++getName() : String
++getDescription() : String
++getWalkingSpeed() : int
++getBonusFor(clan : String): int
+{abstract} + pickClan(clan : String): void
+{abstract} + clanBonuses() : void
+{abstract} + raceOptions() : ArrayList<PlayerChoices>
+{abstract} + chosenVariables(input : String): void
+#addBonus(stat : Stat, quantity : int): void
+}
+
+class AuRa {
+-raenMNames : ArrayList<String>
+-raenFNames : ArrayList<String>
+-xaelaMNames : ArrayList<String>
+-xaelaFNames : ArrayList<String>
+-clanNames : ArrayList<String>
+-familyNames : ArrayList<String>
+#raceStats() : void
+}
+
+class Elezen {
+-elezenMNames : ArrayList<String>
+-elezenFNames : ArrayList<String>
+-elezenSurnames : ArrayList<String>
+}
+
+class Garlean {
+-title : GarleanTitles
++Garlean()
++setGarleanTitle(title : GarleanTitles) : void
++getGarleanTitle() : GarleanTitles
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Hrothgar {
+-clanChoice : HrothgarClan
+-hrothMNames : ArrayList<String>
+-hrothFNames : ArrayList<String>
+-helionNames : ArrayList<String>
+-theLostNames : ArrayList<String>
++Hrothgar()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
+#raceStats() : void
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Hyur {
+-clanChoice : HyurClan
+-midMNames : ArrayList<String>
+-midFNames : ArrayList<String>
+-highMNames : ArrayList<String>
+-highFNames : ArrayList<String>
+-midSurnames : ArrayList<String>
+-highSurnames : ArrayList<String>
++Hyur()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++hyurBonus(choice : Stat) : void
++chosenVariables(input : String) : void
+}
+
+class Lalafell {
+-plainsMNames : ArrayList<String>
+-plainsFNames : ArrayList<String>
+-dunesMNames : ArrayList<String>
+-dunesFNames : ArrayList<String>
+-clanChoice : LalafellClan
++Lalafell()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
+#raceStats() : void
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Miqote {
+-sunTribeChars : ArrayList<String>
+-sunMNames : ArrayList<String>
+-sunFNames : ArrayList<String>
+-moonMNames : ArrayList<String>
+-moonFNames : ArrayList<String>
+-moonSurnames : ArrayList<String>
+-clanChoice : MiqoteClan
++Miqote()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
+#raceStats() : void
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Roegadyn {
+-clanChoice : RoegadynClan
+-roeMSeaWolvesNames : ArrayList<String>
+-roeFSeaWolvesNames : ArrayList<String>
+-roeMHellNames : ArrayList<String>
+-roeFHellNames : ArrayList<String>
++Roegadyn()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
+#raceStats() : void
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Viera {
+-clanChoice : VieraClan
+-vieraMNames : ArrayList<String>
+-vieraFNames : ArrayList<String>
++Viera()
++randomNameGenerator(sex : Sex, stats : HashMap<String, Integer>) : String
+#raceStats() : void
++pickClan(clan : String) : void
++clanBonuses() : void
++raceOptions() : ArrayList<PlayerChoices>
++chosenVariables(input : String) : void
+}
+
+class Character {
+    - name : String
+    - sex : Sex
+    - race : Race
+    - job : Job
+    + Character()
+    + setRace(race : Race) : void
+    + getRace() : Race
+    + setJob(job : Job) : void
+    + setSex(sex : Sex) : void
+    + setName(name : String) : void
+}
+
+enum Sex {
+    MALE
+    FEMALE
+}
+
+enum Alignment {
+    LAWFUL_GOOD
+    NEUTRAL_GOOD
+    CHAOTIC_GOOD
+    LAWFUL_NEUTRAL
+    TRUE_NEUTRAL
+    CHAOTIC_NEUTRAL
+    LAWFUL_EVIL
+    NEUTRAL_EVIL
+    CHAOTIC_EVIL
+    - cleanAlignment : String
+    + Alignment(cleanAlignment : String)
+    + toString() : String
+}
+
+enum Stat {
+    STRENGTH
+    DEXTERITY
+    CONSTITUTION
+    INTELLIGENCE
+    WISDOM
+    CHARISMA
+}
+
+enum GarleanTitles {
+    ZOS
+    YAE
+    WIR
+    VAN
+    TOL
+    SAS
+    REM
+    QUO
+    PYR
+    OEN
+    NAN
+    MAL
+    LUX
+    KIR
+    JEN
+    IYL
+    HET
+    GOE
+    FAE
+    EIR
+    DUS
+    CEN
+    BAS
+    AAN
+    VIATOR
+    -titleDescription : String
+    +getTitleDescription() : String
+}
+
+enum HrothgarClan {
+    HELIONS
+    THE_LOST
+}
+
+enum HyurClan {
+    MIDLANDERS
+    HIGHLANDERS
+    PADJAL
+}
+
+enum LalafellClan {
+    PLAINSFOLK
+    DUNESFOLK
+}
+
+enum MiqoteClan {
+    SEEKERS_OF_THE_SUN
+    KEEPERS_OF_THE_MOON
+}
+
+enum RoegadynClan {
+    SEA_WOLVES
+    HELLSGUARD
+}
+
+enum VieraClan {
+    RAVA
+    VEENA
+}
+
+class DiceRoller {
+    + {static} statRoll() : int
+    + {static} insertionSort(dice : ArrayList<Integer>) : void
+}
+
+class PlayerChoices {
+    - question : String
+    - equipmentOptions : List<String>
+    - isItem : boolean
+    - followQs : Map<String, List<PlayerChoices>>
+    + PlayerChoices(question : String, equipmentOptions : List<String>)
+    + PlayerChoices(question : String, equipmentOptions : List<String>, isItem : boolean)
+    + fQuestion(answer : String, followQuestions : PlayerChoices) : void
+    + getQuestion() : String
+    + getEquipmentOptions() : List<String>
+    + isItem() : boolean
+    + getFollowQs() : Map<String, List<PlayerChoices>>
+}
+
+' === RELATIONSHIPS & ARROWS ===
+
+' Nesting Enums inside Character
+Character +-- Sex
+Character +-- Alignment
+
+' General Enums/Races
+Race +-- Stat
+Garlean +-- GarleanTitles
+Hrothgar +-- HrothgarClan
+Hyur +-- HyurClan
+Lalafell +-- LalafellClan
+Miqote +-- MiqoteClan
+Roegadyn +-- RoegadynClan
+Viera +-- VieraClan
+
+' Aggregation (Character HAS a Job and HAS a Race)
+Character o-- Job
+Character o-- Race
+
+' Inheritance for Jobs
+Job <|-- Astrologian
+Job <|-- Bard
+Job <|-- BlackMage
+Job <|-- Dancer
+Job <|-- DarkKnight
+Job <|-- Dragoon
+Job <|-- Gunbreaker
+Job <|-- Machinist
+Job <|-- Monk
+Job <|-- Ninja
+Job <|-- Paladin
+Job <|-- Pictomancer
+Job <|-- Reaper
+Job <|-- RedMage
+Job <|-- Sage
+Job <|-- Samurai
+Job <|-- Scholar
+Job <|-- Summoner
+Job <|-- Viper
+Job <|-- Warrior
+Job <|-- WhiteMage
+
+' Inheritance for Races
+Race <|-- AuRa
+Race <|-- Elezen
+Race <|-- Garlean
+Race <|-- Hrothgar
+Race <|-- Hyur
+Race <|-- Lalafell
+Race <|-- Miqote
+Race <|-- Roegadyn
+Race <|-- Viera
+Job ..> PlayerChoices : "returns list of"
+Race ..> PlayerChoices : "returns list of"
+CharacterCreator ..> DiceRoller : "calls statRoll()"
+CharacterCreator ..> Character : "instantiates"
+@enduml
  */
 package main;
 
+import java.io.IOException;
 import java.util.*;
 
 import jobs.*;
 import main.Character.*;
 import races.*;
 
+/** The main class, where the user is prompted and the character is created */
 public class CharacterCreator {
+    /**The main method*/
     static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Race chosenRace = getRace(scan);
@@ -33,60 +511,59 @@ public class CharacterCreator {
         Sex chosenSex = assignCharacterSex(scan);
         HashMap<String, Integer> finalStats = getStats(scan);
         chosenJob = getJob(scan);
-        chosenJob.applyJob();
         Alignment chosenAlignment = chooseAlignment(scan);
-        String[] words = chosenAlignment.name().split("_");
-        StringBuilder result = new StringBuilder();
 
-        for (String word : words) {
-            String capitalized = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-            result.append(capitalized).append(" ".trim());
-        }
-        String finalAlignment = result.toString().trim();
-        
         characterName = getName(scan, chosenRace, chosenSex, finalStats);
 
         ArrayList<PlayerChoices> jobSelection = chosenJob.addJobOptions();
-        for (PlayerChoices choices : jobSelection) {
+        for (int i = 0; i < jobSelection.size(); i++) {
+            PlayerChoices choices = jobSelection.get(i);
             System.out.println("\n" + choices.getQuestion());
 
             List<String> options = choices.getEquipmentOptions();
-            for (int i = 0; i < options.size(); i++) {
-                System.out.println((i + 1) + ". " + options.get(i));
-            }
+
 
             int validNumber = 0;
-            boolean isValid = false;
 
-            while (!isValid) {
-                System.out.print("Please enter a valid choice: ");
-                String choice = scan.nextLine();
+            if (options.size() == 1) {
+                validNumber = 1;
+            } else {
+                for (int j = 0; j < options.size(); j++) {
+                    System.out.println((j + 1) + ". " + options.get(j));
+                }
 
-                try {
-                    validNumber = Integer.parseInt(choice);
-                    if (validNumber >= 1 && validNumber <= options.size()) {
-                        isValid = true;
-                    } else {
-                        System.out.println(
-                                "Invalid choice. Please type a number between 1 and " + (options.size() + "."));
+                boolean isValid = false;
+
+                while (!isValid) {
+                    String choice = scan.nextLine();
+
+                    try {
+                        validNumber = Integer.parseInt(choice);
+                        if (validNumber >= 1 && validNumber <= options.size()) {
+                            isValid = true;
+                        } else {
+                            System.out.println("Invalid choice. Please type a number between 1 and " + (options.size() + "."));
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please type a number.");
                     }
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please type a number.");
                 }
             }
             String selection = options.get(validNumber - 1);
-
-            chosenJob.addEquipment(selection);
-            System.out.println(selection + " was added to your starting bag");
-
+            if (choices.isItem()) {
+                chosenJob.addEquipment(selection);
+                System.out.println(selection + " was added to your starting bag");
+            }
+            if (choices.getFollowQs().containsKey(selection)) {
+                jobSelection.addAll(i + 1, choices.getFollowQs().get(selection));
+            }
         }
         if (chosenRace instanceof Garlean) {
             ((Garlean) chosenRace).getGarleanTitle();
         }
-        System.out.println("Congrats, your " + chosenRace.getName() + " " + chosenJob.getJobName() + " named "
-                + characterName  + " aligned as " + finalAlignment + " has been created!");
+        System.out.println("Congrats, your " + chosenRace.getName() + " " + chosenJob.getJobName() + " named " + characterName + " aligned as " + chosenAlignment + " has been created!");
         chosenJob.printInventory();
-        String[] stats = { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
+        String[] stats = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
         System.out.println("\nHere are your stats");
         for (String name : stats) {
             int baseStat = finalStats.get(name);
@@ -106,6 +583,8 @@ public class CharacterCreator {
             System.out.println();
         }
         System.out.println("Saving throws: " + chosenJob.getSavingThrows());
+
+        printSpellBook(chosenJob);
 
     }
 
@@ -138,7 +617,31 @@ public class CharacterCreator {
             dice.add(DiceRoller.statRoll());
         }
 
-        String[] statNames = { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
+        String[] statNames = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
+        DiceRoller.insertionSort(dice);
+
+        System.out.println("Your dice rolls are: " + dice);
+        System.out.println("You can manually assign them, or let fate decide your stats. Press 1 for manual, 2 for random");
+
+        String randomDiceChoice = "";
+        while (true) {
+            randomDiceChoice = scan.nextLine().trim();
+            if (randomDiceChoice.equals("1") || randomDiceChoice.equals("2")) {
+                break;
+            }
+            System.out.println("Please press 1 for manual or 2 for random");
+        }
+
+        if (randomDiceChoice.equals("2")) {
+            System.out.println("Randomly assigning stats...");
+            Collections.shuffle(dice);
+
+            for (int i = 0; i < statNames.length; i++) {
+                stats.put(statNames[i], dice.get(i));
+                System.out.println(statNames[i] + ": " + dice.get(i));
+            }
+            return stats;
+        }
 
         for (String currentStat : statNames) {
             int lastChoice = dice.getFirst();
@@ -175,21 +678,16 @@ public class CharacterCreator {
     }
 
     private static Race getRace(Scanner scan) {
+        Race[] availableRaces = {new AuRa(), new Elezen(), new Garlean(), new Hrothgar(), new Hyur(), new Lalafell(), new Miqote(), new Roegadyn(), new Viera()};
         Race chosenRace = null;
         boolean validRace = false;
 
         while (!validRace) {
-            System.out.println(
-                    "Hello! Welcome to the Dungeons and Dragons x Final Fantasy XIV Character Creator! To get started, first pick your race from the list below:");
-            System.out.println("1. Au Ra");
-            System.out.println("2. Elezen");
-            System.out.println("3. Garlean");
-            System.out.println("4. Hrothgar");
-            System.out.println("5. Hyur");
-            System.out.println("6. Lalafell");
-            System.out.println("7. Miqo'te");
-            System.out.println("8. Roegadyn");
-            System.out.println("9. Viera");
+            System.out.println("\nHello! Welcome to the Dungeons and Dragons x Final Fantasy XIV Character Creator! To get started, first pick your race from the list below:");
+            for (int i = 0; i < availableRaces.length; i++) {
+                System.out.println((i + 1) + ". " + availableRaces[i].getName());
+                System.out.println("    " + availableRaces[i].getDescription() + "\n");
+            }
             String input = scan.nextLine();
 
             switch (input) {
@@ -255,118 +753,40 @@ public class CharacterCreator {
         return chosenRace;
     }
 
-    private static Job getJob(Scanner scan) {
-        Job myJob = null;
+    private static Job getJob(Scanner scan) throws NumberFormatException {
+        Job[] chooseJob = {new Astrologian(), new Bard(), new BlackMage(), new Dancer(), new DarkKnight(), new Gunbreaker(), new Machinist(), new Monk(), new Ninja(), new Paladin(), new Pictomancer(), new Reaper(), new RedMage(), new Sage(), new Samurai(), new Scholar(), new Summoner(), new Viper(), new Warrior(), new WhiteMage()};
+        Job chosenJob = null;
         boolean validJob = false;
         while (!validJob) {
-            System.out.println(
-                    "Select a job from the list below:\n(1) Astrologian\n(2) Bard\n(3) Black Mage\n(4) Dancer\n(5) Dark Knight\n(6) Dragoon\n(7) Gunbreaker\n(8) Machinist\n(9) Monk\n(10) Ninja\n(11) Paladin\n(12) Pictomancer\n(13) Reaper\n(14) Red Mage\n(15) Sage\n(16) Samurai\n(17) Scholar\n(18) Summoner\n(19) Viper\n(20) Warrior\n(21) White Mage");
+            System.out.println("\nSelect a job from the list below:");
+            for (int i = 0; i < chooseJob.length; i++) {
+                System.out.println((i + 1) + ". " + chooseJob[i].getJobName() + " - " + chooseJob[i].getDescription());
+            }
             String input = scan.nextLine();
-            switch (input) {
-                case "1":
-                    myJob = new Astrologian();
+            try {
+                int choice = Integer.parseInt(input);
+                if (choice >= 1 && choice <= chooseJob.length) {
+                    chosenJob = chooseJob[choice - 1];
+                    chosenJob.applyJob();
                     validJob = true;
-                    break;
-                case "2":
-                    myJob = new Bard();
-                    validJob = true;
-                    break;
-                case "3":
-                    myJob = new BlackMage();
-                    validJob = true;
-                    break;
-                case "4":
-                    myJob = new Dancer();
-                    validJob = true;
-                    break;
-                case "5":
-                    myJob = new DarkKnight();
-                    validJob = true;
-                    break;
-                case "6":
-                    myJob = new Dragoon();
-                    validJob = true;
-                    break;
-                case "7":
-                    myJob = new Gunbreaker();
-                    validJob = true;
-                    break;
-                case "8":
-                    myJob = new Machinist();
-                    validJob = true;
-                    break;
-                case "9":
-                    myJob = new Monk();
-                    validJob = true;
-                    break;
-                case "10":
-                    myJob = new Ninja();
-                    validJob = true;
-                    break;
-                case "11":
-                    myJob = new Paladin();
-                    validJob = true;
-                    break;
-                case "12":
-                    myJob = new Pictomancer();
-                    validJob = true;
-                    break;
-                case "13":
-                    myJob = new Reaper();
-                    validJob = true;
-                    break;
-                case "14":
-                    myJob = new RedMage();
-                    validJob = true;
-                    break;
-                case "15":
-                    myJob = new Sage();
-                    validJob = true;
-                    break;
-                case "16":
-                    myJob = new Samurai();
-                    validJob = true;
-                    break;
-                case "17":
-                    myJob = new Scholar();
-                    validJob = true;
-                    break;
-                case "18":
-                    myJob = new Summoner();
-                    validJob = true;
-                    break;
-                case "19":
-                    myJob = new Viper();
-                    validJob = true;
-                    break;
-                case "20":
-                    myJob = new Warrior();
-                    validJob = true;
-                    break;
-                case "21":
-                    myJob = new WhiteMage();
-                    validJob = true;
-                    break;
-                default:
-                    System.out.println("Invalid selection. Please enter a number between 1 and 21");
-                    break;
+                } else {
+                    System.out.println("Please enter a number between 1 and " + (chooseJob.length - 1));
+                }
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("Invalid input. Please enter a number");
+                ;
             }
         }
-
-        return myJob;
+        return chosenJob;
     }
 
+
     private static AuRa auRaCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Au Ra hail from the east, and are marked by their scales and horns.
-                        These people have a stark difference in height between the the males and females of the species. The males tend to be much taller than the females and many other races, while the females on average are shorter than many of the other races.
-                        The dark scaled Xaela are nomads who travel the Azim Steppe and have developed a wide variety of customs which change from tribe to tribe.
-                        The light scaled Raen live largely integrated into modern society, giving up their nomadic ways for peaceful coexistence with the other races.
-                        As an Au Ra, your Wisdom ability score will increase by 2. Base walking speed is 30ft.
-                        If you select the Xaela clan, your Strength will increase by 2.
-                        If you select the Raen, your Charisma will increase by 1.
-                        """);
+        System.out.println("""
+                As an Au Ra, your Wisdom ability score will increase by 2. Base walking speed is 30ft.
+                If you select the Xaela clan, your Strength will increase by 2.
+                If you select the Raen, your Charisma will increase by 1.
+                """);
         while (true) {
             System.out.println("Please pick which clan you wish to start as:\n(1) Xaela\n(2) Raen");
             String selectClan = scanner.nextLine().trim();
@@ -380,8 +800,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Au Ra.");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -400,25 +819,18 @@ public class CharacterCreator {
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again");
             }
-            scanner.close();
         }
     }
 
     private static Elezen elezenCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Elezen are elves who hail from Eorzea who call the lands of Gridania and Ishgard their home.
-                        Taller than regular elves, they have naturally good eyesight and are well intuned with the land.
-                        Over time they split into two groups, the Wildwood whom are light skinned and dextrous, skilled with a bow and live in either dense forests or their highly religious city-state homeland.
-                        Their relatives the Duskwights live in a series of twisting tunnels and ruins underground, coming up only to hunt for food or pillage before returning to their cavernous homes.
-                        As an Elezen, your Intelligence score increases by 2. Base walking speed is 30ft.
-                        If you select the Wildwood, your Dexterity increases by 1.
-                        Selecting Duskwight increases your Constitution by 1.
-                        Ishgardian increases Strength by 1.
-                        """);
+        System.out.println("""
+                As an Elezen, your Intelligence score increases by 2. Base walking speed is 30ft.
+                If you select the Wildwood, your Dexterity increases by 1.
+                Selecting Duskwight increases your Constitution by 1.
+                Ishgardian increases Strength by 1.
+                """);
         while (true) {
-            System.out.println(
-                    "Please pick which clan you wish to start as:\n(1) Wildwood\n(2) Duskwight\n(3) Ishgardian");
+            System.out.println("Please pick which clan you wish to start as:\n(1) Wildwood\n(2) Duskwight\n(3) Ishgardian");
             String selectClan = scanner.nextLine().trim();
             String selectedClan = "";
             if (selectClan.equals("1") || selectClan.equalsIgnoreCase("Wildwood")) {
@@ -432,8 +844,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Elezen.");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -452,24 +863,17 @@ public class CharacterCreator {
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again");
             }
-            scanner.close();
         }
     }
 
     private static Garlean garleanCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Garleans are physically strong and highly intelligent people who call the land of Ilsabard their home.
-                        They are marked by their third eye, a gem like growth in the center of their forehead.
-                        Unfortunately for them, the Garleans as a whole have great difficulty channeling aether through their bodies, which despite their physicality and intelligence, found themselves bowing to many other magic wielding races.
-                        They were eventually able to develop technology to make up for this lack of magical aptitude and turned the tables, establishing the Garlean Empire in Ilsabard, a dominate force which sought to invade the land of Eorzea.
-                        Garleans do not have clans, but rather titles that state their hierarchy in the Empire.
-                        As a Garlean, your Strength increases by 2, and your Intelligence increases by 1.
-                        """);
+        System.out.println("""
+                Garleans do not have clans, but rather titles that state their hierarchy in the Empire.
+                As a Garlean, your Strength increases by 2, and your Intelligence increases by 1.
+                """);
         while (true) {
             System.out.println("You have selected to make a Garlean.");
             System.out.println("Please confirm your choice. Press 1 to confirm, or 2 to return to the race selection:");
-
             try {
                 String confirmation = scanner.nextLine();
                 switch (confirmation) {
@@ -481,8 +885,7 @@ public class CharacterCreator {
                         return null;
                     }
                     default ->
-                        System.out.println(
-                                "Invalid input. Please press 1 to confirm, or 2 to return to the race selection.");
+                            System.out.println("Invalid input. Please press 1 to confirm, or 2 to return to the race selection.");
                 }
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
@@ -491,15 +894,11 @@ public class CharacterCreator {
     }
 
     private static Hrothgar hrothgarCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Hrothgar are powerful, feline people from the Northeast who had struggles when meeting the other races of the world as they were unable to speak the common tongue.
-                        They call Ilsabard their homeland and they walk two distinct paths, one of servitude and the other of freedom.
-                        These distinct paths and ways of life led to the Helions, warm coloured Hrothgar who serve in the name of their Queen, and The Lost, cool coloured Hrothgar who value freedom above all else.
-                        As a Hrothgar, your Strength increases by 2, and your walking speed is 30ft.
-                        If you select a Helion, your Dexterity increases by 1.
-                        If you select The Lost, your Constitution increases by 1.
-                        """);
+        System.out.println("""
+                As a Hrothgar, your Strength increases by 2, and your walking speed is 30ft.
+                If you select a Helion, your Dexterity increases by 1.
+                If you select The Lost, your Constitution increases by 1.
+                """);
         while (true) {
             System.out.println("Please pick which clan you wish to be:\n(1) Helion\n(2) The Lost");
             String selectClan = scanner.nextLine();
@@ -514,8 +913,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Hrothgar.");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -534,25 +932,19 @@ public class CharacterCreator {
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again");
             }
-            scanner.close();
         }
     }
 
+
     private static Hyur hyurCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Hyur have spread across the entirety of the world, making it difficult to trace what their homeland truly is.
-                        There are the average sized Midlanders, named for the elevation in which their sub species lived for many years, and the taller, more muscular highlanders, who lived in the high mountains for their declared homeland.
-                        Lastly, there are the exceedingly rare Padjal, revered because they were chosen by the elementals at birth.
-                        Padjals have white hued animal horns growing from their head and stop aging around their teens, having a natural latent power for conjury.
-                        As a Hyur, you get to increase any ability score of your choice by 1. Your base walking speed is 30ft.
-                        If you select a Midlander, your Intelligence increases by 2.
-                        If you select a Highlander, your Strength increases by 2.
-                        If you select Padjal, your Wisdom increases by 2.
-                        """);
+        System.out.println("""
+                As a Hyur, you get to increase any ability score of your choice by 1. Your base walking speed is 30ft.
+                If you select a Midlander, your Intelligence increases by 2.
+                If you select a Highlander, your Strength increases by 2.
+                If you select Padjal, your Wisdom increases by 2.
+                """);
         while (true) {
-            System.out
-                    .println("Please pick which clan you wish to start as:\n(1) Midlander\n(2) Highlander\n(3) Padjal");
+            System.out.println("Please pick which clan you wish to start as:\n(1) Midlander\n(2) Highlander\n(3) Padjal");
             String selectClan = scanner.nextLine();
             String selectedClan = "";
             if (selectClan.equals("1") || selectClan.equalsIgnoreCase("Midlander")) {
@@ -566,8 +958,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Hyur");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -592,15 +983,11 @@ public class CharacterCreator {
     }
 
     private static Lalafell lalafellCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Lalafell immigrated from Southern islands to Eorzea forming two distinct groups based on the geography their ancestors settled in.
-                        The darker skinned Dunesfolk formed the city state of Ul'dah in the deserts of Thanalan, while the lighter skinned Planesfolk settled and farmed the lands of La Noscea, a large island off the mainland of Eorzea.
-                        Both of these naturally charming folk found great success as merchants through history.
-                        As a Lalafell, your Charisma increases by 1, and your base walking speed is 25.
-                        If you select a Dunesfolk, your Intelligence increases by 1.
-                        If you select a Plainsfolk, your Dexterity will increase by 1.
-                        """);
+        System.out.println("""
+                As a Lalafell, your Charisma increases by 1, and your base walking speed is 25.
+                If you select a Dunesfolk, your Intelligence increases by 1.
+                If you select a Plainsfolk, your Dexterity will increase by 1.
+                """);
         while (true) {
             System.out.println("Please pick which clan you wish to start as:\n(1) Dunesfolk\n(2) Plainsfolk");
             String selectClan = scanner.nextLine();
@@ -614,8 +1001,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Lalafell");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -632,7 +1018,7 @@ public class CharacterCreator {
                         return null;
                     }
                     default ->
-                        System.out.println("Invalid input. Type 1, 2, 3, or the name of the clan you wish to be");
+                            System.out.println("Invalid input. Type 1, 2, 3, or the name of the clan you wish to be");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again");
@@ -641,19 +1027,13 @@ public class CharacterCreator {
     }
 
     private static Miqote miqoteCreator(Scanner scanner) {
-        System.out.println(
-                """
-                         The Miqo'te are a second group of feline people who traveled to Eorzea across a frozen sea long ago.
-                         These proud people find pride in their natural hunting ability and have split into two distinct ethnic groups who worship the sun and moon respectively.
-                         The Seekers of the Sun live in warmer climates in patriarchal societies.
-                         The Keepers of the Moon live in dense forests, their tribes centering on matriarchs.
-                         As a Miqo'te, your Wisdom increases by 2 and your base walking speed is 30ft.
-                         Seekers of the Sun increase their Charisma by 1.
-                         Keepers of the Moon increase their Wisdom by 1.
-                        """);
+        System.out.println("""
+                 As a Miqo'te, your Wisdom increases by 2 and your base walking speed is 30ft.
+                 Seekers of the Sun increase their Charisma by 1.
+                 Keepers of the Moon increase their Wisdom by 1.
+                """);
         while (true) {
-            System.out
-                    .println("Please pick which clan you wish to be:\n(1) Seekers of the Sun\n(2) Keepers of the Moon");
+            System.out.println("Please pick which clan you wish to be:\n(1) Seekers of the Sun\n(2) Keepers of the Moon");
             String selectClan = scanner.nextLine();
             String selectedClan = "";
             if (selectClan.equals("1") || selectClan.equalsIgnoreCase("Seekers of the Sun")) {
@@ -665,8 +1045,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Miqo'te");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -691,14 +1070,11 @@ public class CharacterCreator {
     }
 
     private static Roegadyn roegadynCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        The Roegadyn are large, hulking people who hail from the mountains and the sea.
-                        The Sea Wolves are known as famed pirates and settled the coastal city state Limsa Lominsa, while the Hellsguard live in villages atop mountains and volcanoes, acting as keepers of the land, believing such locations to be portals to other worlds.
-                        As a Roegadyn, your Constitution increases by 2.
-                        If you select a Seawolf, your Strength increases by 1.
-                        If you select a Hellsguard, your Charisma increases by 1.
-                        """);
+        System.out.println("""
+                As a Roegadyn, your Constitution increases by 2.
+                If you select a Seawolf, your Strength increases by 1.
+                If you select a Hellsguard, your Charisma increases by 1.
+                """);
         while (true) {
             System.out.println("Please pick which clan you wish to be:\n(1) Sea Wolf\n(2) Hellsguard");
             String selectClan = scanner.nextLine();
@@ -712,8 +1088,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Roegadyn");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -738,15 +1113,11 @@ public class CharacterCreator {
     }
 
     private static Viera vieraCreator(Scanner scanner) {
-        System.out.println(
-                """
-                        he Viera are lapine people who live in dense forests and act as the protectors of their home.
-                        With their more secluded nature, they generally avoid contact with the outside world, happily protecting the Golmore Jungles and Skatay Range, both found in the east.
-                        There are two distinct groups of Viera who developed slightly differently based on their homes, the Rava having darker skin while the Veena have far fairer skin, both groups blending into their respective environments better thanks to these adaptations.
-                        As a Viera, your Dexterity increases by 2.
-                        If you select a Rava, your Wisdom increases by 1.
-                        If you select a Veena, your Intelligence increases by 1.
-                        """);
+        System.out.println("""
+                As a Viera, your Dexterity increases by 2.
+                If you select a Rava, your Wisdom increases by 1.
+                If you select a Veena, your Intelligence increases by 1.
+                """);
         while (true) {
             System.out.println("Please select which clan you wish to be:\n(1) Rava\n(2) Veena");
             String selectClan = scanner.nextLine();
@@ -760,8 +1131,7 @@ public class CharacterCreator {
                 continue;
             }
             System.out.println("You have selected to make a " + selectedClan + " Viera");
-            System.out.println(
-                    "Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
+            System.out.println("Please confirm your choice. Press 1 to confirm, 2 to go back to clan selection, and 3 to return to the race selection");
             try {
                 String clanConfirmation = scanner.nextLine();
                 switch (clanConfirmation) {
@@ -778,8 +1148,7 @@ public class CharacterCreator {
                         return null;
                     }
                     default ->
-                        System.out.println(
-                                "Invalid input. Please press 1 to confirm, 2 to go back to clan selection, or 3 to return to the race selection");
+                            System.out.println("Invalid input. Please press 1 to confirm, 2 to go back to clan selection, or 3 to return to the race selection");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again");
@@ -787,12 +1156,20 @@ public class CharacterCreator {
         }
     }
 
+    /**
+     * Creates the name for the character being created by asking a series of questions. Can randomly assign a name
+     * based on race and sex. Garlean titles are assigned based on stats, if chosen at random
+     * @param scanner The input from the player
+     * @param race The race of the character being created
+     * @param sex The sex of the character being created
+     * @param stats The stats pertaining to the character, used for generating Garlean title
+     * @return The name of the character in the order of first name, (optional) title, and last name
+     */
     public static String getName(Scanner scanner, Race race, Sex sex, HashMap<String, Integer> stats) {
         String firstName;
         String lastName;
         while (true) {
-            System.out.println(
-                    "Time to make pick a name. You can create one yourself or one can randomly be assigned to you based on your character's race, clan, and sex. Press 1 for custom, press 2 for random. Your custom name will be limited to 20 characters total, and the first and last name can have no more than 15 characters each");
+            System.out.println("Time to make pick a name. You can create one yourself or one can randomly be assigned to you based on your character's race, clan, and sex. Press 1 for custom, press 2 for random. Your custom name will be limited to 20 characters total, and the first and last name can have no more than 15 characters each");
             String input = scanner.nextLine();
 
             if (input.equals("1")) {
@@ -802,8 +1179,7 @@ public class CharacterCreator {
                     if (firstName.matches("[a-zA-Z]'?[a-zA-Z]+-?")) {
                         firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
                         if (race instanceof Garlean) {
-                            System.out.println(
-                                    "Garleans have military and social titles for anyone in the Empire. Please pick a title:");
+                            System.out.println("Garleans have military and social titles for anyone in the Empire. Please pick a title:");
                             for (Garlean.GarleanTitles titles : Garlean.GarleanTitles.values()) {
                                 System.out.println(titles.name() + " " + titles.getTitleDescription());
                             }
@@ -827,27 +1203,22 @@ public class CharacterCreator {
                     if (lastName.matches("[a-zA-Z]+'?-?")) {
                         lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
 
-                        if (firstName.length() <= 15 && firstName.length() >= 2 && lastName.length() <= 15
-                                && lastName.length() >= 2 && (firstName.length() + lastName.length()) <= 20) {
+                        if (firstName.length() <= 15 && firstName.length() >= 2 && lastName.length() <= 15 && lastName.length() >= 2 && (firstName.length() + lastName.length()) <= 20) {
                             if (race instanceof Garlean) {
-                                return firstName + " " + ((Garlean) race).getGarleanTitle().name().toLowerCase() + " "
-                                        + lastName;
+                                return firstName + " " + ((Garlean) race).getGarleanTitle().name().toLowerCase() + " " + lastName;
                             } else {
-                                return firstName + lastName;
+                                return firstName + " " + lastName;
                             }
                         } else {
                             System.out.println("Name is too long!");
-                            scanner.nextLine();
                         }
                     } else {
                         System.out.println("Names cannot contain numbers or symbols except an apostrophe or hyphen");
-                        continue;
                     }
                 }
             } else if (input.equals("2")) {
                 String generatedName = race.randomNameGenerator(sex, stats);
-                System.out.println(
-                        generatedName + " was the name generated. Would you like to keep it? Y for yes, N for no");
+                System.out.println(generatedName + " was the name generated. Would you like to keep it? Y for yes, N for no");
                 if (scanner.nextLine().equalsIgnoreCase("Y")) {
                     return generatedName;
 
@@ -864,15 +1235,20 @@ public class CharacterCreator {
         }
     }
 
+    /**
+     * Asks the player what alignment their character is going to be
+     * @param scan The input from the user
+     * @return The alignment of the character
+     */
     public static Alignment chooseAlignment(Scanner scan) {
         while (true) {
             System.out.println("Pick your alignment: ");
             for (int i = 0; i < Alignment.values().length; i++) {
                 System.out.println((i + 1) + ". " + Alignment.values()[i]);
             }
-            String alignementSelection = scan.nextLine().trim();
+            String alignmentSelection = scan.nextLine().trim();
             try {
-                int choice = Integer.parseInt(alignementSelection);
+                int choice = Integer.parseInt(alignmentSelection);
                 if (choice < 1 || choice > Alignment.values().length) {
                     System.out.println("Please pick a number between 1 and " + Alignment.values().length);
                 } else {
@@ -881,6 +1257,25 @@ public class CharacterCreator {
             } catch (NumberFormatException e) {
                 System.out.println("Please type a number.");
             }
+        }
+    }
+
+    /**
+     * Prints the spells and cantrips chosen at random
+     * @param job The character's job, which specifies what cantrips or spells the character gets access to
+     */
+    public static void printSpellBook(Job job) {
+        if (job.getKnownCantrips().isEmpty() && job.getFirstLevelSpells().isEmpty()) {
+            return;
+        }
+        System.out.println("\nYour spells and cantrips are:\n");
+        if (!job.getKnownCantrips().isEmpty()) {
+            System.out.println("Cantrips: ");
+            System.out.println(String.join(", ", job.getKnownCantrips()));
+        }
+        if (!job.getFirstLevelSpells().isEmpty()) {
+            System.out.println("First level spells: ");
+            System.out.println(String.join(", ", job.getFirstLevelSpells()));
         }
     }
 }
